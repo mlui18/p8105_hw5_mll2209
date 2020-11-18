@@ -236,4 +236,34 @@ Make plot showing proportion of times null was rejected
   ggplot(aes(x = true_mu, y = reject_freq)) + 
   geom_point()
 ```
+As the effect size increases, the power of the test also increases, until it becomes large enough and plateaus at 1.
+
+Make plot showing average estimate of mu hat and true mu. Make second plot with average estimate of mu hat for which the null was rejected and the true value of mu
+```{r}
+plot1 = 
+  sim_results1 %>%
+  mutate(
+    test  = case_when(
+      p.value <= 0.05 ~ "reject",
+      p.value > 0.05 ~ "fail to reject")) %>%
+  group_by(true_mu) %>%
+  summarize(mean = mean(mu_hat)) %>%
+  ggplot(aes(x = true_mu, y = mean)) +
+  geom_point()
+
+plot2 = 
+  sim_results1 %>%
+  mutate(
+    test  = case_when(
+      p.value <= 0.05 ~ "reject",
+      p.value > 0.05 ~ "fail to reject")) %>%
+  filter(test == "reject") %>%
+  group_by(true_mu) %>%
+  summarize(mean = mean(mu_hat)) %>%
+  ggplot(aes(x = true_mu, y = mean)) +
+  geom_point()
+  
+library(patchwork)
+plot1 + plot2
+```
 
