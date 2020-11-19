@@ -161,7 +161,7 @@ Spaghetti plot!
        x = "Week", 
        y = "Observations")
 ```
-From the spaghetti plot, it seems that over time, on average the control group has lower observations when compared to the experimental group, since in the graph the lines corresponding to the experimental group are higher than the lines corresponding to the control group. 
+From the spaghetti plot, it seems that over time, on average the control group has lower observations when compared to the experimental group, since in the graph the lines corresponding to the experimental group are higher than the lines corresponding to the control group. The observations in the experimental group also increase slightly with time, whereas the control group stay relatively constant.
 
 ## Problem 3
 
@@ -264,4 +264,4 @@ Make second plot with average estimate of mu hat for which the null was rejected
   scale_y_continuous(expand = c(0, 0), limits = c(0, NA))
 ```
 
-The sample average of mu hat across tests for which the null is rejected is not approximately equal to the true value of mu, because values that are appreciably different from the true mu get rejected because they will have a larger effect size and smaller p value. Since the averages among samples where the null was rejected is composed of these larger values, the sample average of mu across tests in this situation will be larger than the true value of mu as we see in the graph.
+The sample average of mu hat across tests for which the null is rejected is not approximately equal to the true value of mu, because values that are appreciably different from the true mu get rejected because they will have a larger effect size and smaller p value. Since the averages among samples where the null was rejected is composed of these larger values, the sample average of mu across tests in this situation will be larger than the true value of mu as we see in the graph. The is particularly true when true mu is equal to 1, 2, and 3, since these values are still close to 0 and can still fail to reject; however with larger values 4, 5, and 6, these values are far enough from 0 that they will most likely get rejected which is why the average estimate of mu hat for 4, 5, and 6 look about the same in both graphs. 
